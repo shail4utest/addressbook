@@ -68,17 +68,22 @@ object AddressBook extends AddressBook{
   def main(args: Array[String]) {
     val maleCount = getMaleCount(getProfiles(readFile("AddressBook")))
 
+    println("****************************************************************************************")
     println("How many males are in the address book? " + maleCount)
+    println("****************************************************************************************")
 
     val oldestPerson = getOldestPerson(getProfiles(readFile("AddressBook")))
 
     println("Who is the oldest person in the address book? " + oldestPerson.name)
+    println("****************************************************************************************")
+
     val paul = findProfile("Paul")(getProfiles(readFile("AddressBook")))
     val bill = findProfile("Bill")(getProfiles(readFile("AddressBook")))
     val days = getNoOfDaysBetweenTwoDates(paul.get.dateOfBirth,bill.get.dateOfBirth)
 
     println("How many days older is Bill than Paul? " +days)
 
+    println("****************************************************************************************")
 
 
     //println("[ " + args.mkString(", ") + " ] => £" + ShoppingCart.checkoutWithOffers(args))
