@@ -1,4 +1,4 @@
-package addressbook
+package com.addressbook
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -16,6 +16,8 @@ class AddressBookSpec extends FlatSpec with Matchers{
 
   "A Profile Model" should "be populated from List of String" in {
 
+    val strList = List("John Patton , Male, 01/11/67")
+    AddressBook.getProfiles(strList) shouldBe a [List[_]]
 
   }
 
