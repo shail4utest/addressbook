@@ -57,6 +57,10 @@ trait AddressBook{
   }
 
 
+  def findProfile(name:String)(profiles:List[Profile]) : Option[Profile]={
+    profiles.find(_.name.contains(name))
+  }
+
 }
 
 object AddressBook extends AddressBook{

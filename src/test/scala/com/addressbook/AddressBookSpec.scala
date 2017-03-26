@@ -76,6 +76,18 @@ class AddressBookSpec extends FlatSpec with Matchers{
     AddressBook.getNoOfDaysBetweenTwoDates(date3,date4) should be (31)
 
   }
+
+
+  "AddressBook" should  "find the profile of person based on name" in {
+
+    val profile1 = Profile(name = "John Patton" , "Male" ,str2date("01/11/67"))
+    val profile2 = Profile(name = "Jill Patton" , "Female" ,str2date("01/11/77"))
+    val profile3 = Profile(name = "Jack Patton" , "Male" ,str2date("01/11/87"))
+    val profiles = List(profile1,profile2,profile3)
+    AddressBook.findProfile("John")(profiles) should be (Some(profile1))
+    AddressBook.findProfile("Jack")(profiles) should be (Some(profile3))
+
+  }
 }
 
 
