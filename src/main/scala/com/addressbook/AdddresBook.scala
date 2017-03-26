@@ -1,6 +1,6 @@
 package com.addressbook
 
-import org.joda.time.DateTime
+import org.joda.time.{DateTime, Days}
 import org.joda.time.format.DateTimeFormat
 
 /**
@@ -39,6 +39,22 @@ trait AddressBook{
     profiles.count(_.gender==gender)
   }
 
+  def getMaleCount(profiles:List[Profile]) : Int={
+    getGenderCount("Male")(profiles)
+  }
+
+
+  def getOldestPerson(profiles:List[Profile]) : Profile={
+      profiles.foldLeft(profiles.head){ (x,y) => if (x.dateOfBirth.isBefore(y.dateOfBirth)) x else y }
+  }
+
+  def getNoOfDaysBetweenTwoDates(date1:DateTime,date2:DateTime): Int = {
+     if (date1.isBefore(date2)) {
+       Days.daysBetween(date1, date2).getDays()
+     }else {
+       Days.daysBetween(date2, date1).getDays()
+     }
+  }
 
 
 }
