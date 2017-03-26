@@ -14,6 +14,11 @@ class AddressBookSpec extends FlatSpec with Matchers{
 
   }
 
+  "A Profile Model" should "be populated from List of String" in {
+
+
+  }
+
 
 
 }
