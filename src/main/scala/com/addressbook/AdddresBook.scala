@@ -32,9 +32,19 @@ trait AddressBook{
         Profile(cols(0),cols(1),cols(2))
       }
     }
-
   }
+
+
+  def getGenderCount(gender:String)(profiles:List[Profile]) : Int={
+    profiles.count(_.gender==gender)
+  }
+
+
 
 }
 
-object AddressBook extends AddressBook
+object AddressBook extends AddressBook{
+
+
+
+}

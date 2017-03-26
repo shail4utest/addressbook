@@ -10,6 +10,9 @@ import org.scalatest.{FlatSpec, Matchers}
   */
 class AddressBookSpec extends FlatSpec with Matchers{
 
+   def str2date(str: String) = DateTime.parse(str ,DateTimeFormat.forPattern("dd/MM/yy"))
+
+
   "A text file" should  "be load as List of String" in {
 
     AddressBook.readFile("AddressBook") shouldBe a [List[_]]
@@ -17,7 +20,6 @@ class AddressBookSpec extends FlatSpec with Matchers{
   }
 
   "A Profile Model" should "be populated from List of String" in {
-    implicit def str2date(str: String) = DateTime.parse(str ,DateTimeFormat.forPattern("dd/MM/yy"))
 
     val strList = List("John Patton , Male, 01/11/67")
 
@@ -31,6 +33,18 @@ class AddressBookSpec extends FlatSpec with Matchers{
 
 
   }
+
+ "AddressBook" should  "count no Males" in {
+
+
+   val profile1 = Profile(name = "John Patton" , "Male" ,str2date("01/11/67"))
+   val profile2 = Profile(name = "Jill Patton" , "Female" ,str2date("01/11/67"))
+   val profile3 = Profile(name = "Jack Patton" , "Male" ,str2date("01/11/67"))
+   val profiles = List(profile1,profile2,profile3)
+   AddressBook.getGenderCount("Male")(profiles) should be (2)
+   AddressBook.getGenderCount("Female")(profiles) should be (1)
+
+ }
 
 
 
