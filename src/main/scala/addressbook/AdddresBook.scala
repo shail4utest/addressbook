@@ -20,4 +20,4 @@ trait AddressBook{
 
 }
 
-object AdddresBook extends AddressBook
+object AddressBook extends AddressBook

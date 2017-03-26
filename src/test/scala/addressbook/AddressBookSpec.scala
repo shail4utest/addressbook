@@ -10,7 +10,7 @@ class AddressBookSpec extends FlatSpec with Matchers{
 
   "A text file" should  "be load as List of String" in {
 
-    AdddresBook.readFile("AddressBook") shouldBe a [List[_]]
+    AddressBook.readFile("AddressBook") shouldBe a [List[_]]
 
   }
 
